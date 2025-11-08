@@ -6,7 +6,7 @@ from google.cloud.speech_v2.types import cloud_speech
 PROJECT_ID = os.getenv("GOOGLE_CLOUD_PROJECT")
 
 
-def quickstart_v2(audio_file: str) -> cloud_speech.RecognizeResponse:
+def speech_to_text(audio_file: str) -> cloud_speech.RecognizeResponse:
     """Transcribe an audio file.
     Args:
         audio_file (str): Path to the local audio file to be transcribed.
@@ -48,4 +48,4 @@ if __name__ == "__main__":
         print("Usage: python gooogle.py /path/to/audio.wav")
         sys.exit(1)
 
-    quickstart_v2(sys.argv[1])
+    speech_to_text(sys.argv[1])
