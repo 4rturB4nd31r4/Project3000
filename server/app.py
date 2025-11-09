@@ -48,7 +48,7 @@ def audio_to_transcript():
         recognizer=RECOGNIZER,
         config=cloud_speech.RecognitionConfig(
             auto_decoding_config={},
-            language_codes=["pt-BR"],
+            language_codes=["en-US"],
             features=cloud_speech.RecognitionFeatures(
                 enable_word_confidence=True,
                 enable_word_time_offsets=True,
