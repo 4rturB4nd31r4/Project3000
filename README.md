@@ -35,7 +35,7 @@ Our prototype uses **Google Cloud Speech-to-Text** and **Gemini (Vertex AI)** to
 
 ## 🧠 Main Workflow (Voice → CRM)
 
-1. User uploads an **audio file (.wav or .mp3)**  
+1. User records or uploads an **audio file (.wav or .mp3)**  
 2. `audio_to_transcript` sends it to **Google Cloud Speech-to-Text** for transcription  
 3. The transcript is processed by **Gemini**, which determines the CRM intent and calls HubSpot APIs to:  
    - Create or update a contact  
