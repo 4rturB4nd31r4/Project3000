@@ -93,7 +93,7 @@ pip install flask google-cloud-speech google-cloud-storage google-genai requests
 
 # 3. Start the Flask server
 python app.py
-
+```
 ---
 
 🧑‍💻 Team
