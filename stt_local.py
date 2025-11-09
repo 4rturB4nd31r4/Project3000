@@ -23,7 +23,7 @@ def speech_to_text(audio_file: str) -> cloud_speech.RecognizeResponse:
 
     config = cloud_speech.RecognitionConfig(
         auto_decoding_config=cloud_speech.AutoDetectDecodingConfig(),
-        language_codes=["en-US"],
+        language_codes=["en-US", "pt-BR", "fr-FR"],
         model="long",
     )
 
@@ -39,6 +39,13 @@ def speech_to_text(audio_file: str) -> cloud_speech.RecognizeResponse:
     for result in response.results:
         print(f"Transcript: {result.alternatives[0].transcript}")
 
+    transcripts = []
+    for result in response.results:
+        if result.alternatives:
+            transcripts.append(result.alternatives[0].transcript)
+
+    response = "\n".join(transcripts)
+
     return response
 
 if __name__ == "__main__":
@@ -48,4 +55,6 @@ if __name__ == "__main__":
         print("Usage: python gooogle.py /path/to/audio.wav")
         sys.exit(1)
 
-    speech_to_text(sys.argv[1])
+    response = speech_to_text(sys.argv[1])
+    
+    print(f"Final Transcript:{response}")
