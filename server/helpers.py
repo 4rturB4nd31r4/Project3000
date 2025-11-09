@@ -1,6 +1,5 @@
-from env.vars import *
+from environment.vars import *
 import requests
-from env.vars import *
 from werkzeug.utils import secure_filename
 import time
 import uuid

@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from audio_to_transcript.audio_to_transcript import audio_to_transcript
-from env.vars import PROMPT_SYNTHESIS, PROMPT_HUBSPOT_COMMANDS, HUBSPOT_COMMANDS_SCHEMA, GEMINI_API_KEY, BUCKET_NAME
+from environment.vars import PROMPT_SYNTHESIS, PROMPT_HUBSPOT_COMMANDS, GEMINI_API_KEY, BUCKET_NAME
 from google import genai
 from google.genai import types
 import json
@@ -12,7 +12,7 @@ from google.oauth2 import service_account
 from flask_cors import CORS
 from google.cloud.speech_v2 import SpeechClient
 from google.cloud.speech_v2.types import cloud_speech
-
+from environment.vars import SA_PATH
 
 app = Flask(__name__)
 
@@ -21,8 +21,7 @@ CORS(
     resources={r"/*": {"origins": ["*"]}},
     supports_credentials=True,
 )
-
-SA_PATH = "/home/artur/Documents/hackathon2/Project3000/global-bee-477618-k3-706ca65dcf8f.json" 
+ 
 creds = service_account.Credentials.from_service_account_file(SA_PATH)
 storage_client = storage.Client(credentials=creds)
 bucket = storage_client.bucket(BUCKET_NAME)

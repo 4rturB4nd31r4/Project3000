@@ -3,7 +3,7 @@ from google.cloud.speech_v2.types import cloud_speech
 from google.cloud import storage
 import json, io, os
 from google.protobuf.json_format import MessageToDict
-from env.vars import BUCKET_NAME
+from environment.vars import BUCKET_NAME
 MAX_AUDIO_LENGTH_SECS = 8 * 60 * 60
 
 
