@@ -112,10 +112,6 @@ export const HubSpotPanel = ({ proposedActions, data, onConfirm, onReject }: Hub
             </div>
           )}
         </ScrollArea>
-
-        <p className="text-xs text-muted-foreground">
-          Backend Integration Point: POST actions to your Python API at /crm/sync
-        </p>
       </div>
     </Card>
   );

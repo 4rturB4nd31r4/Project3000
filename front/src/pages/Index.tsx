@@ -229,26 +229,6 @@ const Index = () => {
           />
         </div>
 
-        {/* Backend Integration Guide */}
-        <div className="mt-8 p-6 rounded-lg bg-card border border-border/50 max-w-4xl mx-auto">
-          <h3 className="text-lg font-semibold text-foreground mb-3">Pipeline Flow & Backend Integration</h3>
-          <div className="mb-4 p-3 bg-muted/30 rounded-md border border-border/50">
-            <p className="text-sm text-muted-foreground">
-              Audio Input → Processing → <span className="text-accent font-medium">Review CRM Actions</span> → User Confirmation → Execute
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-            <div className="space-y-1">
-              <p className="font-medium text-primary">POST /process</p>
-              <p className="text-muted-foreground">Accepts audio file (WhatsApp, phone calls, recordings), returns proposed CRM actions</p>
-            </div>
-            <div className="space-y-1">
-              <p className="font-medium text-accent">POST /crm/sync</p>
-              <p className="text-muted-foreground">Executes confirmed CRM actions after user approval</p>
-            </div>
-          </div>
-        </div>
-
         {/* Footer */}
         <footer className="mt-auto pt-16 pb-8 bg-gradient-to-t from-muted/50 via-muted/20 to-transparent border-t border-border/40">
           <div className="max-w-6xl mx-auto px-6">

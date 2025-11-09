@@ -538,10 +538,6 @@ export const VoiceRecorder = ({ onTranscriptionComplete, onTranscriptionStart }:
             </Button>
           </div>
         )}
-
-          <p className="text-xs text-muted-foreground text-center">
-            Backend Integration Point: POST to your Python API at /process
-          </p>
         </div>
       </TooltipProvider>
     </Card>
