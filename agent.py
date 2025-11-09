@@ -190,10 +190,102 @@ def run_crm_agent(transcript: str) -> str:
     )
     return resp.text
 
+def record_audio(output_file: str, duration: float, samplerate: int = 16000, channels: int = 1) -> str:
+    """Record audio from the default microphone and save as a WAV file.
+
+    Args:
+        output_file (str): Path to save the recorded WAV file.
+        duration (float): Recording duration in seconds.
+        samplerate (int, optional): Sampling rate in Hz. Defaults to 16000.
+        channels (int, optional): Number of channels. Defaults to 1 (mono).
+
+    Returns:
+        str: Path to the saved audio file.
+    """
+    import sounddevice as sd
+    import soundfile as sf
+    from pathlib import Path
+    if duration <= 0:
+        raise ValueError("duration must be a positive number")
+
+    out_path = Path(output_file)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+
+    print(f"Recording {duration} seconds to {out_path}...")
+    try:
+        frames = int(duration * samplerate)
+        recording = sd.rec(frames, samplerate=samplerate, channels=channels, dtype="int16")
+        sd.wait()
+        sf.write(out_path, recording, samplerate, subtype="PCM_16")
+    except Exception as exc:
+        raise RuntimeError(f"Failed to record audio: {exc}") from exc
+
+    print("Recording finished.")
+    return str(out_path)
+
 # ---- Example: wire up your STT output ----
 def voice_to_hubspot_pipeline():
     # You already have:
     text = speech_to_text("file")  # <-- your function
     print("User said:", text)
-    result = run_crm_agent(text)
+    try:
+        result = run_crm_agent(text)
+    except Exception as e:
+        result = f"Error running agent: {e}"
     print("Agent:", result)
+
+# ---------- Quick string-based tests (no audio needed) ----------
+def test_with_strings():
+    # These are natural-language transcripts like what STT would produce.
+    tests = [
+        # 1) Find-or-create a contact
+        "New contact: Jane Doe, email jane@acme.com, phone +1 415 555 0199.",
+
+        # 2) Add a note to that contact
+        "Add a note for jane@acme.com: asked for the pricing doc, follow up Monday.",
+
+        # 3) Create a task (natural language time)
+        "Create a task for jane@acme.com due tomorrow at 3pm: send proposal.",
+
+        # 4) Create a deal with specific details
+        "Open a $9,500 deal called Q1 Expansion for jane@acme.com in the Sales Pipeline at stage presentationscheduled, close on 2025-12-15.",
+
+        # 5) Another example using full ISO date/time
+        "Create a task for jane@acme.com due 2025-11-12T15:00:00Z: schedule demo with engineering."
+    ]
+
+    for i, t in enumerate(tests, start=1):
+        print("\n" + "="*70)
+        print(f"TEST {i}: {t}")
+        try:
+            result = run_crm_agent(t)   # <-- directly pass the string transcript
+            print("Agent:", result)
+        except Exception as e:
+            print("Error:", e)
+
+if __name__ == "__main__":
+    import tempfile, os
+    from pathlib import Path
+    # This will run real HubSpot API calls.
+    #test_with_strings()
+    # Quick interactive test: record 10 seconds of audio, transcribe it and run the agent
+    print("\n" + "="*70)
+    print("RECORD-AUDIO TEST: recording 10 seconds...")
+    # Save to a persistent file instead of a temporary one
+    out_dir = Path(__file__).resolve().parent / "recordings"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_path = out_dir / "last_recording.wav"
+
+    print(f"Recording will be saved to: {out_path}")
+    record_audio(str(out_path), duration=10.0)
+
+    text = speech_to_text(str(out_path))
+    print("Transcribed text:", text)
+
+    try:
+        result = run_crm_agent(text)
+    except Exception as e:
+        result = f"Error running agent: {e}"
+    print("Agent:", result)
+
+    # Note: file is kept (not deleted) in ~/recordings/last_recording.wav
