@@ -3,6 +3,17 @@
 ## 🧠 Voice CRM – Voice-to-Structured CRM
 ### Hack-Nation’s 3rd Global AI Hackathon Project Submission
 
+## 📹 Demonstration and Technical Videos
+
+
+https://github.com/user-attachments/assets/bed1996c-6cf8-49a5-b489-67469b4b0817
+
+
+
+https://github.com/user-attachments/assets/559cae40-97ae-486a-9e1f-986bac0dc4c0
+
+
+
 ## 🚀 Overview
 ### Voice CRM eliminates manual data entry in CRM platforms like HubSpot.
 Our prototype uses Google Cloud Speech-to-Text and Gemini (Vertex AI) to turn voice notes and recorded calls into structured CRM entries, automatically creating contacts, notes, deals, and tasks.
