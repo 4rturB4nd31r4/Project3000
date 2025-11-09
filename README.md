@@ -8,17 +8,16 @@ Our prototype uses **Google Cloud Speech-to-Text** and **Gemini (Vertex AI)** to
 
 ## ⚙️ Architecture
 
-**Input → Processing → Output**
+### Input → Processing → Output
 
-🎙️ Audio (voice, call, memo)
-↓
-🧩 Google Speech-to-Text (V2)
-↓
-🧠 Gemini 2.5 (semantic parsing + automation)
-↓
-🔗 HubSpot CRM API
-↓
-✅ Contact / Note / Deal / Task created automatically
+| Stage | Description | Technology |
+|--------|--------------|-------------|
+| 🎙️ **Input** | User provides an audio file (voice note, call, memo) | — |
+| 🧩 **Speech Recognition** | Audio is transcribed into text | Google Cloud **Speech-to-Text V2** |
+| 🧠 **Understanding & Automation** | Text is semantically parsed to detect intent (create contact, note, deal, etc.) | **Gemini 2.5 Flash (Vertex AI)** |
+| 🔗 **CRM Integration** | Relevant HubSpot API endpoints are called automatically | **HubSpot CRM API** |
+| ✅ **Output** | Contact / Note / Deal / Task created automatically | — |
+
 
 ---
 
@@ -94,3 +93,10 @@ pip install flask google-cloud-speech google-cloud-storage google-genai requests
 
 # 3. Start the Flask server
 python app.py
+
+---
+
+🧑‍💻 Team
+
+Aplication for Hack-Nation IA MIT — Voice-to-Structured CRM Project
+Built with ❤️ using Google Cloud and HubSpot APIs
