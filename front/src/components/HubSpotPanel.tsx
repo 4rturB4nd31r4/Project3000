@@ -86,33 +86,9 @@ export const HubSpotPanel = ({ proposedActions, data, onConfirm, onReject }: Hub
           {proposedActions ? (
             <div className="space-y-4">
               <div className="bg-accent/10 border border-accent/20 rounded-md p-4">
-                <p className="text-base font-semibold text-foreground mb-4">The following actions will be performed:</p>
+                <p className="text-base font-semibold text-foreground mb-4">The following was understood by the system:</p>
                 
-                {proposedActions.contact && (
-                  <div className="mb-4">
-                    <p className="text-sm font-medium text-foreground mb-2">
-                      📋 Contact: {proposedActions.contact.name}
-                    </p>
-                    <ul className="space-y-1.5 ml-4">
-                      {proposedActions.contact.changes?.map((change: any, idx: number) => (
-                        <li key={idx} className="text-sm text-foreground">
-                          • <span className="font-medium">{change.field}:</span> {change.value}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                
-                {proposedActions.task && (
-                  <div className="bg-background/50 rounded-md p-3">
-                    <p className="text-sm font-medium text-foreground mb-2">📅 New Task</p>
-                    <div className="space-y-1 ml-4 text-sm text-foreground">
-                      <p>• <span className="font-medium">Title:</span> {proposedActions.task.title}</p>
-                      <p>• <span className="font-medium">Due date:</span> {proposedActions.task.due_date}</p>
-                      <p>• <span className="font-medium">Priority:</span> {proposedActions.task.priority}</p>
-                    </div>
-                  </div>
-                )}
+                {proposedActions}
               </div>
             </div>
           ) : data ? (

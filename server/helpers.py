@@ -1,6 +1,16 @@
 from env.vars import *
 import requests
 from env.vars import *
+from werkzeug.utils import secure_filename
+import time
+import uuid
+
+def make_object_name(filename: str) -> str:
+    base = secure_filename(filename) or "audio.webm"
+    ts = int(time.time())
+    uid = uuid.uuid4().hex[:8]
+    return f"audio-uploads/{ts}-{uid}-{base}"
+
 def _hs_headers():
     return {
         "Authorization": f"Bearer {HUBSPOT_TOKEN}",

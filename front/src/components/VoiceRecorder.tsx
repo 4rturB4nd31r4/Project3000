@@ -318,17 +318,30 @@ export const VoiceRecorder = ({ onTranscriptionComplete, onTranscriptionStart }:
     const formData = new FormData();
     formData.append("audio", audioBlob);
     
-    // Example API call structure:
-    // const response = await fetch("YOUR_PYTHON_BACKEND_URL/transcribe", {
-    //   method: "POST",
-    //   body: formData,
-    // });
-    // const data = await response.json();
-    // onTranscriptionComplete(data.transcription);
+    const res = await fetch("http://localhost:5000/upload-audio", { // ajuste a URL conforme seu backend
+      method: "POST",
+      body: formData,
+    });
+    const data = await res.json();
+    const gs_uri = data?.gs_uri;
+    const transcript = (await (await fetch("http://localhost:5000/audio_to_transcript", {
+      method: "POST",
+      body: JSON.stringify({ audio_url: gs_uri }),
+      headers: { "Content-Type": "application/json" }
+    })).json()).transcription;
+    const synthesis = (await (await fetch("http://localhost:5000/synthesis", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ transcript: transcript }),
+    })).json()).result;
+    const hubspot_commands = (await (await fetch("http://localhost:5000/hubspot_commands", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ transcript: transcript }),
+    })).json()).result;
 
-    // Simulated response for demo
     setTimeout(() => {
-      onTranscriptionComplete("This is where your speech-to-text transcription will appear. Connect your Python backend to /process endpoint.");
+      onTranscriptionComplete(synthesis);
       setIsProcessing(false);
     }, 1500);
   };

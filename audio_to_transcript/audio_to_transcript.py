@@ -3,13 +3,13 @@ from google.cloud.speech_v2.types import cloud_speech
 from google.cloud import storage
 import json, io, os
 from google.protobuf.json_format import MessageToDict
-
+from env.vars import BUCKET_NAME
 MAX_AUDIO_LENGTH_SECS = 8 * 60 * 60
 
 
 def run_batch_recognize(audio_url):
   client = SpeechClient()
-  gcs_output_folder = "gs://audio_to_transcript123/transcripts"
+  gcs_output_folder = "gs://" + BUCKET_NAME + "/transcripts"
   config = cloud_speech.RecognitionConfig(
       auto_decoding_config={},
       features=cloud_speech.RecognitionFeatures(
@@ -41,7 +41,7 @@ def audio_to_transcript(audio_url):
     response_dict = MessageToDict(response._pb)
     result = response_dict["results"]
     first_key, first_value = next(iter(result.items()))
-    BUCKET = "audio_to_transcript123"
+    BUCKET = BUCKET_NAME
     BLOB = first_value["cloudStorageResult"]["uri"]
     client = storage.Client()
     bucket = client.bucket(BUCKET)

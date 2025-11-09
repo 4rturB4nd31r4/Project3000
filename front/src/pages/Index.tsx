@@ -58,7 +58,7 @@ const Index = () => {
     setProposedActions(null);
     setHubspotData(null);
     setProcessingStage("analyzing");
-    handleSendToGemini();
+    handleSendToGemini(text);
   };
 
   const handleTranscriptionStart = () => {
@@ -69,7 +69,7 @@ const Index = () => {
     setProcessingStage("transcribing");
   };
 
-  const handleSendToGemini = async () => {
+  const handleSendToGemini = async (text: string) => {
     console.log("handleSendToGemini called, isCancelled:", isCancelled);
     
     setIsAnalyzing(true);
@@ -92,22 +92,7 @@ const Index = () => {
       if (!abortController.signal.aborted) {
         console.log("Processing complete, showing results");
         // Simulated proposed CRM actions
-        setProposedActions({
-          contact: {
-            name: "John Doe",
-            action: "update",
-            changes: [
-              { field: "Lifecycle Stage", value: "Opportunity" },
-              { field: "Lead Status", value: "Qualified" },
-              { field: "Notes", value: "Expressed interest in premium features during call" }
-            ]
-          },
-          task: {
-            title: "Follow up on pricing inquiry",
-            due_date: new Date(Date.now() + 86400000).toLocaleDateString(),
-            priority: "High"
-          }
-        });
+        setProposedActions(text);
         
         setProcessingStage("complete");
         setIsAnalyzing(false);
