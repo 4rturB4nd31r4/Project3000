@@ -20,9 +20,6 @@ Our prototype uses **Google Cloud Speech-to-Text** and **Gemini (Vertex AI)** to
 ↓
 ✅ Contact / Note / Deal / Task created automatically
 
-yaml
-Copiar código
-
 ---
 
 ## 🧩 Project Structure
