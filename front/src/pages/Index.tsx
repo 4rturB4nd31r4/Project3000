@@ -323,7 +323,7 @@ const Index = () => {
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center text-accent-foreground font-bold text-xl shadow-[var(--shadow-soft)]">
                   HG
                 </div>
-                <p className="text-sm font-semibold text-foreground">Heitor Gamma</p>
+                <p className="text-sm font-semibold text-foreground">Heitor Gama Ribeiro</p>
                 <div className="flex items-center gap-1">
                   <Button
                     variant="ghost"
@@ -331,7 +331,7 @@ const Index = () => {
                     className="h-9 w-9 hover:bg-primary/10 hover:text-primary"
                     asChild
                   >
-                    <a href="https://www.linkedin.com/in/heitor-gamma-ribeiro" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/in/heitor-gama-ribeiro" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                       <Linkedin className="h-4 w-4" />
                     </a>
                   </Button>
@@ -351,7 +351,7 @@ const Index = () => {
                     className="h-9 w-9 hover:bg-primary/10 hover:text-primary"
                     asChild
                   >
-                    <a href="mailto:heitor_gamma@usp.br" aria-label="Email">
+                    <a href="mailto:heitor_gama@usp.br" aria-label="Email">
                       <Mail className="h-4 w-4" />
                     </a>
                   </Button>
