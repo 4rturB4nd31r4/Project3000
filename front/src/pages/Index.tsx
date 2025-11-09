@@ -269,10 +269,10 @@ const Index = () => {
           <div className="max-w-6xl mx-auto px-6">
             <div className="text-center space-y-2 mb-10">
               <p className="text-base font-semibold text-foreground">
-                Developed by [Your Group Name]
+                Developed by 404 O(1/n) BaNaNa Megalodon3000
               </p>
               <p className="text-sm text-muted-foreground">
-                [Your Organization Name]
+                CentraleSupélec
               </p>
             </div>
             
@@ -281,9 +281,9 @@ const Index = () => {
               {/* Member 1 */}
               <div className="flex flex-col items-center space-y-3">
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-bold text-xl shadow-[var(--shadow-soft)]">
-                  M1
+                  AB
                 </div>
-                <p className="text-sm font-semibold text-foreground">Member Name 1</p>
+                <p className="text-sm font-semibold text-foreground">Artur Bandeira Chan Jorge</p>
                 <div className="flex items-center gap-1">
                   <Button
                     variant="ghost"
@@ -291,7 +291,7 @@ const Index = () => {
                     className="h-9 w-9 hover:bg-primary/10 hover:text-primary"
                     asChild
                   >
-                    <a href="https://linkedin.com/in/member1" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/in/artur-bandeira-chan-jorge-b7646327a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                       <Linkedin className="h-4 w-4" />
                     </a>
                   </Button>
@@ -301,7 +301,7 @@ const Index = () => {
                     className="h-9 w-9 hover:bg-primary/10 hover:text-primary"
                     asChild
                   >
-                    <a href="https://github.com/member1" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <a href="https://github.com/ArturBandeira" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                       <Github className="h-4 w-4" />
                     </a>
                   </Button>
@@ -311,7 +311,7 @@ const Index = () => {
                     className="h-9 w-9 hover:bg-primary/10 hover:text-primary"
                     asChild
                   >
-                    <a href="mailto:member1@example.com" aria-label="Email">
+                    <a href="mailto:arturbchanj@gmail.com" aria-label="Email">
                       <Mail className="h-4 w-4" />
                     </a>
                   </Button>
@@ -321,9 +321,9 @@ const Index = () => {
               {/* Member 2 */}
               <div className="flex flex-col items-center space-y-3">
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center text-accent-foreground font-bold text-xl shadow-[var(--shadow-soft)]">
-                  M2
+                  HG
                 </div>
-                <p className="text-sm font-semibold text-foreground">Member Name 2</p>
+                <p className="text-sm font-semibold text-foreground">Heitor Gamma</p>
                 <div className="flex items-center gap-1">
                   <Button
                     variant="ghost"
@@ -331,7 +331,7 @@ const Index = () => {
                     className="h-9 w-9 hover:bg-primary/10 hover:text-primary"
                     asChild
                   >
-                    <a href="https://linkedin.com/in/member2" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/in/heitor-gamma-ribeiro" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                       <Linkedin className="h-4 w-4" />
                     </a>
                   </Button>
@@ -341,7 +341,7 @@ const Index = () => {
                     className="h-9 w-9 hover:bg-primary/10 hover:text-primary"
                     asChild
                   >
-                    <a href="https://github.com/member2" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <a href="https://github.com/baunilhamarga" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                       <Github className="h-4 w-4" />
                     </a>
                   </Button>
@@ -351,7 +351,7 @@ const Index = () => {
                     className="h-9 w-9 hover:bg-primary/10 hover:text-primary"
                     asChild
                   >
-                    <a href="mailto:member2@example.com" aria-label="Email">
+                    <a href="mailto:heitor_gamma@usp.br" aria-label="Email">
                       <Mail className="h-4 w-4" />
                     </a>
                   </Button>
@@ -361,9 +361,9 @@ const Index = () => {
               {/* Member 3 */}
               <div className="flex flex-col items-center space-y-3">
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary via-accent to-primary flex items-center justify-center text-primary-foreground font-bold text-xl shadow-[var(--shadow-soft)]">
-                  M3
+                  HS
                 </div>
-                <p className="text-sm font-semibold text-foreground">Member Name 3</p>
+                <p className="text-sm font-semibold text-foreground">Henrique Souza de Abreu Martins</p>
                 <div className="flex items-center gap-1">
                   <Button
                     variant="ghost"
@@ -371,7 +371,7 @@ const Index = () => {
                     className="h-9 w-9 hover:bg-primary/10 hover:text-primary"
                     asChild
                   >
-                    <a href="https://linkedin.com/in/member3" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/in/henrique-souza-de-abreu-martins-159274383/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                       <Linkedin className="h-4 w-4" />
                     </a>
                   </Button>
@@ -381,7 +381,7 @@ const Index = () => {
                     className="h-9 w-9 hover:bg-primary/10 hover:text-primary"
                     asChild
                   >
-                    <a href="https://github.com/member3" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <a href="https://github.com/HenriqueSAMartins" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                       <Github className="h-4 w-4" />
                     </a>
                   </Button>
@@ -391,7 +391,7 @@ const Index = () => {
                     className="h-9 w-9 hover:bg-primary/10 hover:text-primary"
                     asChild
                   >
-                    <a href="mailto:member3@example.com" aria-label="Email">
+                    <a href="mailto:henrique.souzaamartins@gmail.com" aria-label="Email">
                       <Mail className="h-4 w-4" />
                     </a>
                   </Button>
@@ -401,9 +401,9 @@ const Index = () => {
               {/* Member 4 */}
               <div className="flex flex-col items-center space-y-3">
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent via-primary to-accent flex items-center justify-center text-accent-foreground font-bold text-xl shadow-[var(--shadow-soft)]">
-                  M4
+                  PL
                 </div>
-                <p className="text-sm font-semibold text-foreground">Member Name 4</p>
+                <p className="text-sm font-semibold text-foreground">Pedro Lubaszewski Lima</p>
                 <div className="flex items-center gap-1">
                   <Button
                     variant="ghost"
@@ -411,7 +411,7 @@ const Index = () => {
                     className="h-9 w-9 hover:bg-primary/10 hover:text-primary"
                     asChild
                   >
-                    <a href="https://linkedin.com/in/member4" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/in/pedro-lubaszewski/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                       <Linkedin className="h-4 w-4" />
                     </a>
                   </Button>
@@ -421,7 +421,7 @@ const Index = () => {
                     className="h-9 w-9 hover:bg-primary/10 hover:text-primary"
                     asChild
                   >
-                    <a href="https://github.com/member4" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <a href="https://github.com/PLLima" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                       <Github className="h-4 w-4" />
                     </a>
                   </Button>
@@ -431,7 +431,7 @@ const Index = () => {
                     className="h-9 w-9 hover:bg-primary/10 hover:text-primary"
                     asChild
                   >
-                    <a href="mailto:member4@example.com" aria-label="Email">
+                    <a href="mailto:pedro.lubaszewski.lima@gmail.com" aria-label="Email">
                       <Mail className="h-4 w-4" />
                     </a>
                   </Button>
