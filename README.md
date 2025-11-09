@@ -64,10 +64,14 @@ Our prototype uses Google Cloud Speech-to-Text and Gemini (Vertex AI) to turn vo
 
 ## ▶️ Run Locally
 
-The project has two main parts:  
-- The **backend** (Flask + Python) inside the `server/` folder  
-- The **frontend** (React + Vite) inside the `front/` folder  
+The project has four main parts:  
+1. Speech-to-text API (Google Cloud)
+2. Generative AI agentic API for text to HubSpot commands (Gemini)
+3. The **backend** (Flask + Python) inside the `server/` folder  
+4. The **frontend** (React + Vite) inside the `front/` folder  
+5. HubSpot API  
 
+**Obs.: For parts 1, 2, and 5, provide the required API credentials using your preferred method (environment variables, external JSON file, etc.).**  
 Follow the steps below to prepare your environment and run both components:
 
 ---
