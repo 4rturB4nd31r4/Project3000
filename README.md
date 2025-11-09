@@ -33,7 +33,6 @@ Our prototype uses Google Cloud Speech-to-Text and Gemini (Vertex AI) to turn vo
 | `LICENSE` | Project license |
 | `README.md` | This documentation |
 | `requirements.txt` | Python dependencies list |
-| `global-bee-xxxx.json` | Google Cloud authentication key (not public) |
 
 ---
 
