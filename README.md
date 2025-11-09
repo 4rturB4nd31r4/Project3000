@@ -18,7 +18,6 @@ Our prototype uses **Google Cloud Speech-to-Text** and **Gemini (Vertex AI)** to
 | 🔗 **CRM Integration** | Relevant HubSpot API endpoints are called automatically | **HubSpot CRM API** |
 | ✅ **Output** | Contact / Note / Deal / Task created automatically | — |
 
-
 ---
 
 ## 🧩 Project Structure
@@ -56,28 +55,6 @@ Our prototype uses **Google Cloud Speech-to-Text** and **Gemini (Vertex AI)** to
 | Backend | **Flask (Python)** |
 | CRM | **HubSpot API v3 / v4** |
 | Cloud | **Google Cloud Run / Functions (recommended)** |
-
----
-
-## 🔑 Environment Variables
-
-| Variable | Description |
-|-----------|-------------|
-| `GEMINI_API_KEY` | Gemini model API key |
-| `HUBSPOT_TOKEN` | HubSpot private access token |
-| `GOOGLE_CLOUD_PROJECT` | Google Cloud project ID |
-| `GOOGLE_APPLICATION_CREDENTIALS` | Path to your GCP service account JSON file |
-
----
-
-## 🔍 API Endpoints
-
-| Endpoint | Method | Description |
-|-----------|---------|-------------|
-| `/` | GET | Health check |
-| `/audio_to_transcript` | POST | Receives `{ "audio_url": "<gs://...>" }` → returns transcript |
-| `/synthesis` | POST | Receives `{ "transcript": "..." }` → returns AI summary |
-| `/hubspot_commands` | POST | Receives `{ "transcript": "..." }` → executes HubSpot actions |
 
 ---
 
