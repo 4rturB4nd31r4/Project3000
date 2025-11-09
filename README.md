@@ -1,6 +1,6 @@
 # Project3000
 
-# 🧠 Zero-Click CRM – Voice-to-Structured CRM (Hack IA MIT)
+# 🧠 Zero-Click CRM – Voice-to-Structured CRM (Hack-Nation's 3rd Global AI Hackathon Project Submission)
 
 ## 🚀 Overview
 **Zero-Click CRM** eliminates manual data entry in platforms like HubSpot.  
