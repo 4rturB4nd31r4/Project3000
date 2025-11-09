@@ -7,13 +7,9 @@ from google.protobuf.json_format import MessageToDict
 MAX_AUDIO_LENGTH_SECS = 8 * 60 * 60
 
 
-def run_batch_recognize():
+def run_batch_recognize(audio_url):
   client = SpeechClient()
-
   gcs_output_folder = "gs://audio_to_transcript123/transcripts"
-
-  audio_gcs_uri = "gs://audio_to_transcript123/audio-files/WhatsApp Ptt 2025-11-08 at 19.38.19.ogg"
-
   config = cloud_speech.RecognitionConfig(
       auto_decoding_config={},
       features=cloud_speech.RecognitionFeatures(
@@ -28,7 +24,7 @@ def run_batch_recognize():
       gcs_output_config=cloud_speech.GcsOutputConfig(uri=gcs_output_folder),
   )
 
-  files = [cloud_speech.BatchRecognizeFileMetadata(uri=audio_gcs_uri)]
+  files = [cloud_speech.BatchRecognizeFileMetadata(uri=audio_url)]
 
   request = cloud_speech.BatchRecognizeRequest(
       recognizer="projects/scenic-era-477618-k8/locations/global/recognizers/_",
@@ -40,26 +36,26 @@ def run_batch_recognize():
   response = operation.result(timeout=3 * MAX_AUDIO_LENGTH_SECS)
   return response
 
-response = run_batch_recognize()
-response_dict = MessageToDict(response._pb)
-result = response_dict["results"]
-first_key, first_value = next(iter(result.items()))
-BUCKET = "audio_to_transcript123"
-BLOB = first_value["cloudStorageResult"]["uri"]
+def audio_to_transcript(audio_url):
+    response = run_batch_recognize(audio_url)
+    response_dict = MessageToDict(response._pb)
+    result = response_dict["results"]
+    first_key, first_value = next(iter(result.items()))
+    BUCKET = "audio_to_transcript123"
+    BLOB = first_value["cloudStorageResult"]["uri"]
+    client = storage.Client()
+    bucket = client.bucket(BUCKET)
+    blob = storage.Blob.from_string(BLOB, client=client)
+    raw = blob.download_as_bytes()
+    data = json.loads(raw)
+    confidence = 0
+    transcript = ''
+    for alternative in data["results"][0]["alternatives"]:
+        if(alternative["confidence"] > confidence):
+            confidence = alternative["confidence"]
+            transcript = alternative["transcript"]
+    if(confidence < 0.50):
+        return False, 'Repeat'
+    return True, transcript
 
-client = storage.Client()
-bucket = client.bucket(BUCKET)
-blob = storage.Blob.from_string(BLOB, client=client)
 
-raw = blob.download_as_bytes()
-data = json.loads(raw)
-confidence = 0
-transcript = ''
-for alternative in data["results"][0]["alternatives"]:
-    if(alternative["confidence"] > confidence):
-        confidence = alternative["confidence"]
-        transcript = alternative["transcript"]
-if(confidence < 0.50):
-    print("Repeat")
-    exit(1)
-print(transcript)    
